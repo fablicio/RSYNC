@@ -1,3 +1,4 @@
-# fms
+# RSYNC
 
-Usando o RSYNC para criar Backups
+Usando o RSYNC para criar Backups 
+RSYNC to create Backups
