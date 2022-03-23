@@ -17,5 +17,3 @@ echo " Sincronização Finalizada em $FINAL" >> $LOG
 echo "|-----------------------------------------------" >> $LOG
 echo " " >> $LOG
 echo " " >> $LOG
-
-TESTE 
