@@ -1,0 +1,34 @@
+name: MyApp develop
+on:
+  workflow_dispatch:
+  push:
+    branches: ['develop']
+    env:
+  REGISTRY: "192.168.0.48:32000"
+  IMAGE_NAME: "myapp"
+  NAMESPACE: "myapp-namespace"
+  DOCKERFILE: "./home/fablicio/Projeto/Dockerfile"
+  DOCKERCONTEXT: "."
+  jobs:
+  build-and-push-image:
+    runs-on: [self-hosted,X64,Linux,MyWiselyChosenLabel]
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Set current date to tag the built image with
+        id: version
+        run: echo "builddate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build docker image
+        run: "docker build --no-cache -f ${{ env.DOCKERFILE }} -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.builddate }} ${{ env.DOCKERCONTEXT }}"
+
+      - name: Push docker image to registry
+        run: "docker image push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.builddate }}"
+
+      - name: Rollout restart MyApp deployment with new version
+        run: "microk8s kubectl set image deployment/${{ env.IMAGE_NAME }}-deployment ${{ env.IMAGE_NAME }}=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.builddate }} -n ${{ env.NAMESPACE }} --record"
