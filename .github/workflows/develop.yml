@@ -1,17 +1,19 @@
 name: MyApp develop
- on:
+on:
   workflow_dispatch:
   push:
     branches: ['develop']
-    env:
+
+env:
   REGISTRY: "192.168.0.48:32000"
   IMAGE_NAME: "myapp"
   NAMESPACE: "myapp-namespace"
   DOCKERFILE: "./home/fablicio/Projeto/Dockerfile"
   DOCKERCONTEXT: "."
-  jobs:
+
+jobs:
   build-and-push-image:
-    runs-on: [self-hosted,X64,Linux,MyWiselyChosenLabel]
+    runs-on: [self-hosted, X64, Linux, MyWiselyChosenLabel]
     permissions:
       contents: read
       packages: write
