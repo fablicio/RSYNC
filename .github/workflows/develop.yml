@@ -5,10 +5,10 @@ on:
     branches: ['develop']
 
 env:
-  REGISTRY: "192.168.0.48:32000"
-  IMAGE_NAME: "myapp"
+  REGISTRY: "192.168.0.48"
+  IMAGE_NAME: "mynginx:local"
   NAMESPACE: "myapp-namespace"
-  DOCKERFILE: "./home/fablicio/Projeto/Dockerfile"
+  DOCKERFILE: "/home/fablicio/Projetos/Dockerfile"
   DOCKERCONTEXT: "."
 
 jobs:
