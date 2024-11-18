@@ -1,9 +1,8 @@
 name: MyApp develop
 on:
-  workflow_dispatch:
   push:
-    branches: ['develop']
-
+    branches: 
+      - develop
 env:
   REGISTRY: "k8s-01"
   IMAGE_NAME: "mynginx"
