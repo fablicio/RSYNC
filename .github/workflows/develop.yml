@@ -1,44 +1,14 @@
-name: MyApp develop
+name: MyApp
 on:
-  workflow_dispatch:
   push:
-    branches: ['develop']
-    env:
-  REGISTRY: "k8s-01"
-  IMAGE_NAME: "mynginx:local"
-  NAMESPACE: "myapp-namespace"
-  DOCKERFILE: "./Projetos/Dockerfile"
-<<<<<<< HEAD
-=======
-
-    env:
-  REGISTRY: "k8s-01"
-  IMAGE_NAME: "mynginx:local"
-  NAMESPACE: "myapp-namespace"
-  DOCKERFILE: "./Projetos/Dockerfile"
->>>>>>> 9b4247a8631af0cfb68a50ea553b113c5a2a4db2
-  DOCKERCONTEXT: "."
+    branches:
+      - develop
 
 jobs:
-  build-and-push-image:
-    runs-on: [self-hosted, X64, Linux, MyWiselyChosenLabel]
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-      - name: Set current date to tag the built image with
-        id: version
-        run: echo "builddate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
-
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Build docker image
-        run: "docker build --no-cache -f ${{ env.DOCKERFILE }} -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.builddate }} ${{ env.DOCKERCONTEXT }}"
-
-      - name: Push docker image to registry
-        run: "docker image push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.builddate }}"
-
-      - name: Rollout restart MyApp deployment with new version
-        run: "microk8s kubectl set image deployment/${{ env.IMAGE_NAME }}-deployment ${{ env.IMAGE_NAME }}=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.builddate }} -n ${{ env.NAMESPACE }} --record"
+  CallTemplate:
+    uses: fablicio/pipeline-templates/tree/master/.github/workflows/develop.yml@main
+    with:
+      project: "name"
+      dockerfile: "dockerfilename"
+      environment: "dev"
+    secrets: inherit
