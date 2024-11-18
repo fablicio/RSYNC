@@ -6,9 +6,9 @@ on:
 
 env:
   REGISTRY: "k8s-01"
-  IMAGE_NAME: "myapp"
-  NAMESPACE: "myapp-namespace"
-  DOCKERFILE: "./Projeto/Dockerfile"
+  IMAGE_NAME: "mynginx:local"
+  NAMESPACE: "nginx-namespace"
+  DOCKERFILE: "/home/fablicio/Projetos"
   DOCKERCONTEXT: "."
 
 jobs:
