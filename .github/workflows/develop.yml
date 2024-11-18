@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: "k8s-01"
-  IMAGE_NAME: "mynginx:local"
+  IMAGE_NAME: "mynginx"
   NAMESPACE: "nginx-namespace"
   DOCKERFILE: "./home/fablicio/Projetos"
   DOCKERCONTEXT: "."
