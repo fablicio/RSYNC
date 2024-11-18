@@ -1,13 +1,12 @@
 name: MyApp
- on:
-  workflow_call:
+on:
   push:
     branches:
       - develop
 
 jobs:
   CallTemplate:
-    uses:   fablicio/pipeline-templates/.github/workflows/deploydevelop.yml
+    uses: fablicio/pipeline-templates/.github/workflows/deploydevelop.yml
     with:
       project: "MyApp develop"
       dockerfile: "Dockerfile"
