@@ -3,17 +3,12 @@ on:
   workflow_dispatch:
   push:
     branches: ['develop']
-    env:
-  REGISTRY: "k8s-01"
-  IMAGE_NAME: "mynginx:local"
-  NAMESPACE: "myapp-namespace"
-  DOCKERFILE: "./Projetos/Dockerfile"
 
-    env:
-  REGISTRY: "k8s-01"
-  IMAGE_NAME: "mynginx:local"
+env:
+  REGISTRY: "k8s-01:32000"
+  IMAGE_NAME: "myapp"
   NAMESPACE: "myapp-namespace"
-  DOCKERFILE: "./Projetos/Dockerfile"
+  DOCKERFILE: "./Projeto/Dockerfile"
   DOCKERCONTEXT: "."
 
 jobs:
