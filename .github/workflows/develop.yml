@@ -8,7 +8,7 @@ jobs:
   CallTemplate:
     uses: fablicio/pipeline-templates/tree/master/.github/workflows/develop.yml@main
     with:
-      project: "name"
-      dockerfile: "dockerfilename"
+      project: "MyApp develop"
+      dockerfile: "Dockerfile"
       environment: "dev"
     secrets: inherit
