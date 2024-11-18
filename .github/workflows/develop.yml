@@ -6,7 +6,7 @@ on:
 
 jobs:
   CallTemplate:
-    uses: github.com/fablicio/pipeline-templates/tree/master/.github/workflows/develop.yml@main
+    uses: github.com/fablicio/pipeline-templates/master/.github/workflows/develop.yml@main
     with:
       project: "MyApp develop"
       dockerfile: "Dockerfile"
