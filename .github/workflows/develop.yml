@@ -1,5 +1,6 @@
 name: MyApp
  on:
+  workflow_call:
   push:
     branches:
       - develop
