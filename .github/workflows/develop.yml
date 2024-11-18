@@ -8,7 +8,7 @@ env:
   REGISTRY: "k8s-01"
   IMAGE_NAME: "mynginx:local"
   NAMESPACE: "nginx-namespace"
-  DOCKERFILE: "/home/fablicio/Projetos"
+  DOCKERFILE: "./home/fablicio/Projetos"
   DOCKERCONTEXT: "."
 
 jobs:
