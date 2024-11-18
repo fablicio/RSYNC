@@ -5,7 +5,7 @@ on:
     branches: ['develop']
 
 env:
-  REGISTRY: "k8s-01:32000"
+  REGISTRY: "k8s-01"
   IMAGE_NAME: "myapp"
   NAMESPACE: "myapp-namespace"
   DOCKERFILE: "./Projeto/Dockerfile"
