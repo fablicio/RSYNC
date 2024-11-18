@@ -3,15 +3,25 @@ on:
   workflow_dispatch:
   push:
     branches: ['develop']
+<<<<<<< HEAD
     env:
   REGISTRY: "k8s-01"
   IMAGE_NAME: "mynginx:local"
   NAMESPACE: "myapp-namespace"
   DOCKERFILE: "./Projetos/Dockerfile"
+=======
+
+env:
+  REGISTRY: "192.168.0.48"
+  IMAGE_NAME: "mynginx:local"
+  NAMESPACE: "myapp-namespace"
+  DOCKERFILE: "/home/fablicio/Projetos/Dockerfile"
+>>>>>>> 4dd2c829b77dfcbdfda000c43d1bb25166fe6ee6
   DOCKERCONTEXT: "."
-  jobs:
+
+jobs:
   build-and-push-image:
-    runs-on: [self-hosted,X64,Linux,MyWiselyChosenLabel]
+    runs-on: [self-hosted, X64, Linux, MyWiselyChosenLabel]
     permissions:
       contents: read
       packages: write
