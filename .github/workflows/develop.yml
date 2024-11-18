@@ -14,7 +14,7 @@ on:
   REGISTRY: "k8s-01"
   IMAGE_NAME: "mynginx:local"
   NAMESPACE: "myapp-namespace"
-  DOCKERFILE: "./home/fablicio/Projetos/Dockerfile"
+  DOCKERFILE: "./Projetos/Dockerfile"
   DOCKERCONTEXT: "."
 
 jobs:
