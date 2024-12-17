@@ -21,10 +21,4 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64 -t myapp_develop:${{ github.sha }} -f Dockerfile .
-          docker push myapp_develop:${{ github.sha }}
-
-      - name: Deploy to environment
-        run: |
-          echo "Deploying to dev environment"
-          # Adicione seus comandos de implantação aqui
+          docker buildx build --platform linux/amd64,linux/arm64 -t myapp_develop:${{ github.sha }} -f Dockerfile --push .
