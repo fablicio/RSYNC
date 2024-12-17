@@ -5,7 +5,7 @@ on:
       - develop
 
 jobs:
-  CallTemplate:
+  call-workflow-passing-data:
     uses: .github/workflows/deploydevelop.yml
     with:
       project: "myapp_develop"
