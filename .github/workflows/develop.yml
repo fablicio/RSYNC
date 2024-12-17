@@ -7,7 +7,7 @@ on:
 
 jobs:
   CallReusablePipeline:
-    uses: ../pipeline-templates/.github/workflows/reusable-pipeline.yml
+    uses: ./pipeline-templates/.github/workflows/reusable-pipeline.yml
     with:
       project: "myapp_develop"
       dockerfile: "Dockerfile"
