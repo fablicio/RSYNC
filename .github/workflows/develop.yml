@@ -6,7 +6,7 @@ on:
 
 jobs:
   CallTemplate:
-    uses: './.github/workflows/deploydevelop.yml@master'
+    uses: ./.github/workflows/deploydevelop.yaml@master
     with:
       project: "MyApp develop"
       dockerfile: "Dockerfile"
