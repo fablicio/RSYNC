@@ -1,12 +1,13 @@
 name: MyApp
+
 on:
   push:
     branches:
       - develop
 
 jobs:
-  CallTemplate:
-    uses: .github/workflows/deploydevelop.yml
+  CallReusablePipeline:
+    uses: ./.github/workflows/reusable-pipeline.yml
     with:
       project: "myapp_develop"
       dockerfile: "Dockerfile"
