@@ -6,7 +6,7 @@ on:
 
 jobs:
   CallTemplate:
-    uses: /fablicio/RSYNC/.github/workflows/develop.yml
+    uses: /fablicio/RSYNC/.github/workflows/develop.yml@master
     with:
       project: "MyApp develop"
       dockerfile: "Dockerfile"
