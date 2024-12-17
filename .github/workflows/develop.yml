@@ -6,7 +6,7 @@ on:
 
 jobs:
   CallTemplate:
-    uses: pipeline-templates/.github/workflows/deploydevelop.yml
+    uses: ./.github/workflows/deploydevelop.yml
     with:
       project: "MyApp develop"
       dockerfile: "Dockerfile"
