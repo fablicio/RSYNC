@@ -7,7 +7,7 @@ on:
 
 jobs:
   CallReusablePipeline:
-    uses: ./.github/workflows/reusable-pipeline.yml
+    uses: https://github.com/fablicio/pipeline-templates/blob/main/.github/workflows/reusable-pipeline.yml
     with:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
