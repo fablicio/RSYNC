@@ -7,8 +7,9 @@ on:
 
 jobs:
   CallReusablePipeline:
-    uses: ../.github/workflows/reusable-pipeline.yml@main
+    uses: ./pipeline-templates/.github/workflows/reusable-pipeline.yml@main
     with:
-      docker_username: ${{ github.repository_owner }}
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
       image_name: "fabliciosoares/myapp"
+    secrets: inherit
