@@ -7,7 +7,7 @@ on:
 
 jobs:
   CallReusablePipeline:
-    uses: ./.github/workflows/reusable-pipeline.yml@main
+    uses: ../.github/workflows/reusable-pipeline.yml@main
     with:
       docker_username: ${{ github.repository_owner }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
