@@ -8,6 +8,8 @@ on:
 jobs:
   CallReusablePipeline:
     uses: fablicio/pipeline-templates/.github/workflows/reusable-pipeline.yml@main
+    with:
+      image_name: "fabliciosoares/myapp"
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
