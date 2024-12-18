@@ -6,26 +6,10 @@ on:
       - develop
 
 jobs:
-  build:
-    runs-on: self-hosted
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Docker Buildx
-        run: |
-          docker buildx create --use
-          docker buildx inspect --bootstrap
-
-      - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
-      - name: Build Docker image locally
-        run: |
-          docker build -t fabliciosoares/myapp:latest -f Dockerfile .
-
-      - name: Tag and push Docker image
-        run: |
-          docker tag fabliciosoares/myapp:latest fabliciosoares/myapp:${{ github.sha }}
-          docker push fabliciosoares/myapp:${{ github.sha }}
+  CallReusablePipeline:
+    uses: ./pipeline-templates/.github/workflows/reusable-pipeline.yml
+    with:
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
+      image_name: "fabliciosoares/myapp"
+    secrets: inherit
